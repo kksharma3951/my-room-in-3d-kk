@@ -8,6 +8,7 @@ import TopChair from './TopChair.js'
 import ElgatoLight from './ElgatoLight.js'
 import BouncingLogo from './BouncingLogo.js'
 import Screen from './Screen.js'
+import FloorPlan from './FloorPlan.js'
 
 export default class World
 {
@@ -30,6 +31,7 @@ export default class World
                 this.setElgatoLight()
                 this.setBouncingLogo()
                 this.setScreens()
+                this.setFloorPlan()
             }
         })
     }
@@ -81,6 +83,11 @@ export default class World
         )
     }
 
+    setFloorPlan()
+    {
+        this.floorPlan = new FloorPlan()
+    }
+
     resize()
     {
     }
@@ -101,6 +108,9 @@ export default class World
 
         if(this.bouncingLogo)
             this.bouncingLogo.update()
+            
+        if(this.floorPlan)
+            this.floorPlan.update()
     }
 
     destroy()
